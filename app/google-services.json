@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "915030301857",
+    "project_id": "android-todo-list-spegc",
+    "storage_bucket": "android-todo-list-spegc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:915030301857:android:1776aa99a5c971e77024e0",
+        "android_client_info": {
+          "package_name": "com.example.android_firebase_intro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "915030301857-47fr0335he0d1rhjeatvjvdqvroa02f4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgAz5AGhGLXwwxWvQBOkRwbui7kuBHpAs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "915030301857-47fr0335he0d1rhjeatvjvdqvroa02f4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
