@@ -39,7 +39,7 @@ class SplashFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val currentUser = auth.currentUser
-        if(currentUser != null){
+        if(currentUser == null){
             view.findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
         } else {
             view.findNavController().navigate(R.id.action_splashFragment_to_homeFragment)

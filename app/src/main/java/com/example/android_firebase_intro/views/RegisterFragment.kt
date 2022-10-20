@@ -83,12 +83,6 @@ class RegisterFragment : Fragment() {
                 createUser(email, password)
             }
         }
-
-//        val btnHome = view.findViewById<Button>(R.id.btnRegisterHome)
-//
-//        btnHome.setOnClickListener {
-//            view.findNavController().navigate(R.id.action_registerFragment_to_homeFragment)
-//        }
     }
 
     override fun onDestroyView() {

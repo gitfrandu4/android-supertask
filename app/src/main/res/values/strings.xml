@@ -14,4 +14,7 @@
     <string name="action_log_up">Regístrate</string>
     <string name="next">Continuar</string>
     <string name="name">Nombre</string>
+    <string name="tasks">Tareas</string>
+    <string name="logout">Cerrar sesión</string>
+    <string name="logout_description">Botón para cerrar sesión</string>
 </resources>
