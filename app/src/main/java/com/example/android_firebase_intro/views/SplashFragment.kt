@@ -1,16 +1,11 @@
 package com.example.android_firebase_intro.views
 
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
 import com.example.android_firebase_intro.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -44,16 +39,5 @@ class SplashFragment : Fragment() {
         } else {
             view.findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
         }
-
-//        val btnHome = view.findViewById<Button>(R.id.btnSplashHome)
-//        val btnlogin = view.findViewById<Button>(R.id.btnSplashLogin)
-//
-//        btnHome.setOnClickListener {
-//            view.findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
-//        }
-//
-//        btnlogin.setOnClickListener {
-//            view.findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
-//        }
     }
 }
