@@ -86,7 +86,7 @@ class HomeFragment : Fragment() {
 
         // ==============
 //        val myCategory = Category()
-//        myCategory.name = "Vacaciones Canarias"
+//        myCategory.name = "Comprar"
 //        createCategory(myCategory)
 
 //        readCategories()
@@ -148,22 +148,6 @@ class HomeFragment : Fragment() {
         }
     }
 
-    fun readCategories() {
-        db.collection(DataHolder.USERS)
-            .document(auth.currentUser!!.uid)
-            .collection(DataHolder.CATEGORIES)
-            .get()
-            .addOnSuccessListener { categories ->
-                for (category in categories) {
-                    // TODO: Conver to object and save in arrayList
-                    Log.d("HomeFragment", "${category.id} => ${category.data}")
-                }
-            }
-            .addOnFailureListener { exception ->
-                Log.d("HomeFragment", "Error readCategories", exception)
-            }
-    }
-
     private fun createCategory(category: Category) {
         db.collection(DataHolder.USERS)
             .document(auth.currentUser!!.uid)
@@ -197,7 +181,7 @@ class HomeFragment : Fragment() {
             .whereEqualTo("categoryId", categoryId)
             .whereEqualTo("completed", true)
             .get()
-            .addOnSuccessListener { tasks->
+            .addOnSuccessListener { tasks ->
                 for (task in tasks) {
                     // TODO: convert to object and save in ArrayList
                     Log.d("HomeFragment", "readAllTasksPending: ${task.id} => ${task.data}")
@@ -215,7 +199,7 @@ class HomeFragment : Fragment() {
             .whereEqualTo("categoryId", categoryId)
             .whereEqualTo("completed", false)
             .get()
-            .addOnSuccessListener { tasks->
+            .addOnSuccessListener { tasks ->
                 for (task in tasks) {
                     // TODO: convert to object and save in ArrayList
                     Log.d("HomeFragment", "readAllTasksPending: ${task.id} => ${task.data}")
@@ -233,7 +217,7 @@ class HomeFragment : Fragment() {
             .document(taskId)
             .get()
             .addOnSuccessListener { document ->
-                if(document != null) {
+                if (document != null) {
                     Log.d("HomeFragment", "readTask data: ${document.data}")
                 } else {
                     Log.d("HomeFragment", "No such readTask")
