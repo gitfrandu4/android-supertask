@@ -17,4 +17,6 @@
     <string name="tasks">Tareas</string>
     <string name="logout">Cerrar sesión</string>
     <string name="logout_description">Botón para cerrar sesión</string>
+    <string name="my_tasks">Mis tareas</string>
+    <string name="timer">Timer</string>
 </resources>
