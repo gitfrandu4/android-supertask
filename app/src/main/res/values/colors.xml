@@ -12,4 +12,7 @@
     <color name="primaryVariant">#211f28</color>
     <color name="primaryRed">#DA343C</color>
     <color name="primaryRedLight">#D2F64D55</color>
+    <color name="primaryYellow">#f8a308</color>
+    <color name="primaryBlue">#349ebc</color>
+
 </resources>

@@ -7,18 +7,18 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android_firebase_intro.R
 import com.example.android_firebase_intro.models.Category
-import org.w3c.dom.Text
 
 class CategoryAdapter(private val allCategories: ArrayList<Category>) :
     RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
 
-    inner class CategoryViewHolder(var v: View) : RecyclerView.ViewHolder(v) {
+    inner class CategoryViewHolder(v: View) : RecyclerView.ViewHolder(v) {
 
-        val category_amount: TextView = v.findViewById(R.id.item_category_amount)
-        val category_text: TextView = v.findViewById(R.id.item_category_text)
+        private val categoryAmount: TextView = v.findViewById(R.id.item_category_amount)
+        private val categoryText: TextView = v.findViewById(R.id.item_category_text)
 
         fun bindData(data: Category) {
-            category_text.text = data.name.toString()
+            categoryText.text = data.name.toString()
+            categoryAmount.text = data.nTasks.toString()
         }
     }
 

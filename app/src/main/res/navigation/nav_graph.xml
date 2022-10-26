@@ -37,6 +37,12 @@
         <action
             android:id="@+id/action_homeFragment_to_splashFragment"
             app:destination="@id/splashFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_newTaskActivity"
+            app:destination="@id/newTaskActivity" />
+        <action
+            android:id="@+id/action_homeFragment_to_tasksCategoryActivity"
+            app:destination="@id/tasksCategoryActivity" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -49,5 +55,24 @@
         <action
             android:id="@+id/action_registerFragment_to_splashFragment"
             app:destination="@id/splashFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/newTaskActivity"
+        android:name="com.example.android_firebase_intro.activities.NewTaskActivity"
+        android:label="activity_newtask_activitie"
+        tools:layout="@layout/activity_new_task" />
+    <activity
+        android:id="@+id/tasksCategoryActivity"
+        android:name="com.example.android_firebase_intro.activities.TasksCategoryActivity"
+        android:label="activity_tasks_category"
+        tools:layout="@layout/activity_tasks_category" />
+    <fragment
+        android:id="@+id/newTaskFragment"
+        android:name="com.example.android_firebase_intro.views.NewTaskFragment"
+        android:label="fragment_new_task"
+        tools:layout="@layout/fragment_new_task" >
+        <action
+            android:id="@+id/action_newTaskFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 </navigation>

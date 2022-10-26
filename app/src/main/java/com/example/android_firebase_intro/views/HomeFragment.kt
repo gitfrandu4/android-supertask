@@ -1,19 +1,20 @@
 package com.example.android_firebase_intro.views
 
+import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.android_firebase_intro.R
+import com.example.android_firebase_intro.activities.NewTaskActivity
 import com.example.android_firebase_intro.databinding.FragmentHomeBinding
 import com.example.android_firebase_intro.models.Category
 import com.example.android_firebase_intro.models.DataHolder
 import com.example.android_firebase_intro.models.Task
+import com.example.android_firebase_intro.models.User
 import com.example.android_firebase_intro.views.home.TaskFragment
 import com.example.android_firebase_intro.views.home.TimerFragment
 import com.google.android.material.appbar.MaterialToolbar
@@ -21,7 +22,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.example.android_firebase_intro.models.User
+
 
 class HomeFragment : Fragment() {
 
@@ -44,7 +45,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -58,7 +59,7 @@ class HomeFragment : Fragment() {
             when (menuItem.itemId) {
                 R.id.logout -> {
                     val logout = auth.signOut()
-                    Log.i("HomeFragment", "${logout}")
+                    Log.i("HomeFragment", "$logout")
                     view.findNavController().navigate(R.id.action_homeFragment_to_splashFragment)
                 }
             }
@@ -83,6 +84,11 @@ class HomeFragment : Fragment() {
         }
         bottomNavigationView.selectedItemId = R.id.menu_tasks
 
+        val addTaskBtn = binding.floatingActionButton
+        addTaskBtn.setOnClickListener {
+            val intent = Intent(activity, NewTaskActivity::class.java)
+            startActivity(intent)
+        }
 
         // ==============
 //        val myCategory = Category()
@@ -161,7 +167,7 @@ class HomeFragment : Fragment() {
             }
     }
 
-    fun createTask(task: Task) {
+    private fun createTask(task: Task) {
         db.collection(DataHolder.USERS)
             .document(auth.currentUser!!.uid)
             .collection(DataHolder.TASKS)
@@ -192,25 +198,7 @@ class HomeFragment : Fragment() {
             }
     }
 
-    private fun readAllPendingTasks(categoryId: String) {
-        db.collection(DataHolder.USERS)
-            .document(auth.currentUser!!.uid)
-            .collection(DataHolder.TASKS)
-            .whereEqualTo("categoryId", categoryId)
-            .whereEqualTo("completed", false)
-            .get()
-            .addOnSuccessListener { tasks ->
-                for (task in tasks) {
-                    // TODO: convert to object and save in ArrayList
-                    Log.d("HomeFragment", "readAllTasksPending: ${task.id} => ${task.data}")
-                }
-            }
-            .addOnFailureListener { exception ->
-                Log.d("HomeFragment", "Failure readAllPendingTasks", exception)
-            }
-    }
-
-    fun readTask(taskId: String) {
+    private fun readTask(taskId: String) {
         db.collection(DataHolder.USERS)
             .document(auth.currentUser!!.uid)
             .collection(DataHolder.TASKS)

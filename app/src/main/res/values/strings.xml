@@ -19,4 +19,13 @@
     <string name="logout_description">Botón para cerrar sesión</string>
     <string name="my_tasks">Mis tareas</string>
     <string name="timer">Timer</string>
+    <string name="add_task">Añadir una tarea nueva</string>
+    <string name="new_task">Nueva tarea</string>
+    <string name="select_category">Seleccionar categoría</string>
+    <string name="create_task">Crear tarea</string>
+    <string name="high">Alta</string>
+    <string name="medium">Media</string>
+    <string name="low">Baja</string>
+    <string name="task_title">Titulo de la tarea</string>
+    <string name="task_description">Descripción de la tarea</string>
 </resources>
